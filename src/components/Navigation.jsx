@@ -1,11 +1,12 @@
 import { Container, Navbar, Nav } from 'react-bootstrap';
+import { Sparkles } from 'lucide-react';
 
-export default function Navigation () {
+export default function Navigation ({ setPage }) {
     return (
         <Navbar expand="lg" variant="dark" bg="black" fixed="top" className="py-2 shadow-sm" style={{ backdropFilter: 'blur(8px)', backgroundColor: 'rgb(0, 0, 0, 0.8)', borderBottom: '1px solid rgba(255, 255, 255, 0.1)'}}>
             <Container fluid className="px-4">
                 <div className="d-flex align-items-center w-100">
-                    <Navbar.Brand href="#" className="font-monospace fw-bold text-accent" style={{ fontSize: '1rem' }}>
+                    <Navbar.Brand onClick={() => setPage('home')} href="#" className="font-monospace fw-bold text-accent" style={{ fontSize: '1rem' }}>
                         donovan.dev
                     </Navbar.Brand>
                 
@@ -14,9 +15,10 @@ export default function Navigation () {
 
                     <Navbar.Collapse id="basic-navbar-nav">
                         <Nav className="gap-3 ms-3">
-                            {['about', 'experience', 'software', 'hardware', 'skills', 'blog'].map((link) => (
+                            {['about', 'experience', 'software', 'hardware', 'skills'].map((link) => (
                                 <Nav.Link
                                     key={link}
+                                    onClick={() => setPage('home')}
                                     href={`#${link}`}
                                     className="font-monospace opacity-75 transition-all"
                                     style={{ transition: 'opacity 0.2s ease-in-out', color: 'white' }}
@@ -32,7 +34,24 @@ export default function Navigation () {
                                     [{link}]
                                 </Nav.Link>
                             ))}
+
+                            <Nav.Link
+                                onClick={() => setPage('blog')}
+                                className="font-monospace opacity-75 transition-all"
+                                style={{ transition: 'opacity 0.2s ease-in-out', color: 'white' }}
+                                onMouseOver={(e) => {
+                                    e.currentTarget.style.color = 'var(--accent)';
+                                    e.currentTarget.style.opacity = '1';
+                                }}
+                                onMouseOut={(e) => {
+                                    e.currentTarget.style.color = 'inherit';
+                                    e.currentTarget.style.opacity = '0.75';
+                                }}
+                            >
+                                [<Sparkles size={16} className="mb-1" />]
+                            </Nav.Link>
                         </Nav>
+        
 
                         <Nav className="ms-auto gap-3 align-items-center">
                             <Nav.Link href="https://www.linkedin.com/in/donovan-crowley-67a455276/" target="_blank" className="text-accent transition-colors" style={{ transition: 'color 0.2s ease-in-out' }} onMouseOver={(e) => e.currentTarget.style.color = '#ffffff'} onMouseOut={(e) => e.currentTarget.style.color = 'var(--accent)'}>

@@ -123,11 +123,11 @@ export default function Hero() {
                         </h2>
 
                         <p className="text-light font-monospace opacity-75 mb-3">
-                            Student at Case Western Reserve University. Passionate about computer vision, machine learning, and embedded systems architecture (who isnt?).
+                            Student at Case Western Reserve University. Passionate about computer vision, machine learning, and embedded systems (who isnt?).
                         </p>
 
                         <p className="text-light font-monospace opacity-75 mb-3">
-                            Currently exploring Bayesian cognition, program synthesis, and inference-as-optimization.
+                            Currently exploring neuro-symbolic integration, Bayesian cognition, and neuromorphic architecture.
                         </p>
 
                         <p className="text-light font-monospace opacity-75 mb-3">

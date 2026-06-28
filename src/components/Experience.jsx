@@ -11,7 +11,7 @@ export default function Experience() {
             <Container className="px-4">
                 <Row>
                     <Col md={{ span: 10, offset: 1}} className="offset-md-1">
-                        <h3 className="font-monospace mb-5 text-accent">/ experience</h3>
+                        <h3 className="font-monospace mb-5 text-accent">/ roadmap</h3>
                     
                         <Tab.Container defaultActiveKey="owens">
                             <Row className="g-0">
