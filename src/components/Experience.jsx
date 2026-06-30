@@ -1,11 +1,9 @@
 import { Tab, Nav, Row, Col, Container } from 'react-bootstrap';
+import { experiences } from '../data/experiences';
+
 
 export default function Experience() {
-    const experiences = [
-        { id: 'owens', title: 'Science & Technology Intern', org: 'Owens Corning', date: 'Summer 2026'},
-        { id: 'sdle', title: 'Undergraduate Researcher', org: 'SDLE', date: 'Present' },
-        { id: 'vtol', title: 'Electronics Lead', org: 'VTOL', date: 'Present'}
-    ]
+
     return (
         <section id="experience" className="py-5 bg-black text-light">
             <Container className="px-4">
@@ -40,8 +38,13 @@ export default function Experience() {
                                                     <small className="opacity-50">{exp.date}</small>
                                                 </div>
                                                 <ul className="list-unstyled font-monospace opacity-75" style={{ fontSize: '0.9rem', lineHeight: '1.8' }}>
-                                                    <li className="mb-2">▹ Developed high-performance workflows...</li>
-                                                    <li className="mb-2">▹ Optimized architecture for scalable systems...</li>
+                                                    {exp.bullets.map((bullet, i) => (
+                                                        <li key={i} className="d-flex mb-2">
+                                                            <span className="text-accent me-2">▹</span>
+                                                            <span className="flex-grow-1">{bullet}</span>
+                                                            
+                                                        </li>
+                                                    ))}
                                                 </ul>
                                             </Tab.Pane>
                                         ))}

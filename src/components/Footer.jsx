@@ -10,7 +10,7 @@ export default function Footer() {
                             Built & designed by me.
                         </p>
                         <p className="font-monospace mb-0" style={{ fontSize: '0.75rem' }}>
-                            Copyright © {new Date().getFullYear()} Donovan Crowley.
+                            Copyright © Donovan Crowley {new Date().getFullYear()}
                         </p>
                     </Col>
                 </Row>

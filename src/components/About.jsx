@@ -14,7 +14,7 @@ export default function About() {
 
                         <p className="mb-3 text-light font-monospace" style = {{ fontSize: '0.95rem', opacity: 0.8 }}>
                             I am involved in CWRU's Vertical Take-Off and Landing (VTOL) club where I work on the software and hardware side of things.
-                            Previously, I worked for the Process Automation team at Owens Corning.
+                            This past summer, I worked on the Process Automation team at Owens Corning.
                         </p>
 
                         <p className="mb-3 text-light font-monospace" style = {{ fontSize: '0.95rem', opacity: 0.8 }}>
