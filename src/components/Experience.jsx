@@ -37,10 +37,10 @@ export default function Experience() {
                                                     <h5 className="text-accent mb-2">@ {exp.org}</h5>
                                                     <small className="opacity-50">{exp.date}</small>
                                                 </div>
-                                                <ul className="list-unstyled font-monospace opacity-75" style={{ fontSize: '0.9rem', lineHeight: '1.8' }}>
+                                                <ul className="list-unstyled font-monospace opacity-75" style={{ fontSize: '0.9rem', lineHeight: '1.8'}}>
                                                     {exp.bullets.map((bullet, i) => (
-                                                        <li key={i} className="d-flex mb-2">
-                                                            <span className="text-accent me-2">▹</span>
+                                                        <li key={i} className="d-flex mb-3 align-items-start">
+                                                            <span className="text-accent me-3" style={{ fontSize: '2rem', marginTop: '-0.35rem', lineHeight: '1', display: 'inline-block'}}>▹</span>
                                                             <span className="flex-grow-1">{bullet}</span>
                                                             
                                                         </li>

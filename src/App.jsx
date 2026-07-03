@@ -1,47 +1,35 @@
-import { useState, useEffect } from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Navigation from './components/Navigation';
-import Hero from './components/Hero';
-import About from './components/About';
-import Experience from './components/Experience';
-import Projects from './components/Projects'
 import Footer from './components/Footer'
 import Blog from './components/Blog'
-
+import Home from './components/Home';
+import VTOL from './pages/vtol';
+import EV from './pages/ev';
+import Webscraper from './pages/webscraper';
+import OT from './pages/ot';
+import Collage from './pages/collage';
+import ScrollToTop from './components/ScrollToTop.jsx'
 
 export default function App() {
-  const[page, setPage] = useState('home');
-
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      window.scrollTo({ top: 0, behavior: 'instant' });
-    }, 0);
-    return () => clearTimeout(timer);
-  }, [page]);
-
-  const renderPage = () => {
-    switch(page) {
-      case 'blog':
-        return <Blog />
-      default:
-        return (
-          <>
-            <Hero />
-            <About />
-            <Experience />
-            <Projects category="software" />
-            <Projects category="hardware" />
-          </>
-        );
-    }
-  };
-
-  return (
-    <div className="bg-black text-light d-flex flex-column min-vh-100">
-      <Navigation setPage={setPage} />
-      <main className="pt-5 flex-grow-1">
-        {renderPage()}
-      </main>
-      <Footer />
-    </div>
+  return(
+    <BrowserRouter>
+      <ScrollToTop />
+      <div className="bg-black text-light d-flex flex-column min-vh-100">
+        <Navigation />
+        <main className="pt-5 flex-grow-1">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/blog" element={<Blog />} />
+            <Route path="/projects/1" element={<VTOL />} />
+            <Route path="/projects/2" element={<EV />} />
+            <Route path="/projects/3" element={<Webscraper />} />
+            <Route path="/projects/4" element={<OT />} />
+            <Route path="/projects/5" element={<Collage />} />
+          </Routes>
+        </main>
+        
+        <Footer />
+      </div>
+    </BrowserRouter>
   );
 }

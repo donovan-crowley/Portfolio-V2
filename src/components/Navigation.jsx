@@ -1,52 +1,73 @@
 import { Container, Navbar, Nav } from 'react-bootstrap';
 import { Sparkles } from 'lucide-react';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 
-export default function Navigation ({ setPage }) {
+export default function Navigation () {
+    const navigate = useNavigate();
+    const location = useLocation();
+
+    const handleScrollTo = (section) => {
+        // If the section is null/top, just go to top
+        if (!section) {
+            if (location.pathname !== '/') {
+                navigate('/');
+            }
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+            return;
+        }
+
+        // Navigate to home first, then scroll
+        if (location.pathname !== '/') {
+            navigate('/');
+            setTimeout(() => {
+                const element = document.getElementById(section);
+                element?.scrollIntoView({ behavior: 'smooth' });
+            }, 100);
+        } else {
+            const element = document.getElementById(section);
+            element?.scrollIntoView({ behavior: 'smooth' });
+        }
+    };
+
     return (
         <Navbar expand="lg" variant="dark" bg="black" fixed="top" className="py-2 shadow-sm" style={{ backdropFilter: 'blur(8px)', backgroundColor: 'rgb(0, 0, 0, 0.8)', borderBottom: '1px solid rgba(255, 255, 255, 0.1)'}}>
             <Container fluid className="px-4">
                 <div className="d-flex align-items-center w-100">
-                    <Navbar.Brand onClick={() => setPage('home')} href="#" className="font-monospace fw-bold text-accent" style={{ fontSize: '1rem' }}>
+                    <button 
+                        onClick={() => handleScrollTo(null)} 
+                        className="font-monospace fw-bold text-accent border-0 bg-transparent p-0" 
+                        style={{ fontSize: '1rem' }}
+                        onMouseOver={(e) => e.currentTarget.style.color = '#ffffff'} 
+                        onMouseOut={(e) => e.currentTarget.style.color = 'var(--accent)'}
+                    >
                         donovan.dev
-                    </Navbar.Brand>
+                    </button>
                 
 
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
 
                     <Navbar.Collapse id="basic-navbar-nav">
                         <Nav className="gap-3 ms-3">
-                            {['about', 'experience', 'software', 'hardware', 'skills'].map((link) => (
-                                <Nav.Link
-                                    key={link}
-                                    onClick={() => setPage('home')}
-                                    href={`#${link}`}
-                                    className="font-monospace opacity-75 transition-all"
-                                    style={{ transition: 'opacity 0.2s ease-in-out', color: 'white' }}
-                                    onMouseOver={(e) => {
-                                        e.currentTarget.style.color = 'var(--accent)';
-                                        e.currentTarget.style.opacity = '1';
-                                    }}
-                                    onMouseOut={(e) => {
-                                        e.currentTarget.style.color = 'inherit';
-                                        e.currentTarget.style.opacity = '0.75';
-                                    }}
-                                >
-                                    [{link}]
-                                </Nav.Link>
+                            {['about', 'experience', 'software', 'hardware'].map((link) => (
+                            <button 
+                                key={link} 
+                                onClick={() => handleScrollTo(link)}
+                                className="font-monospace text-decoration-none border-0 bg-transparent opacity-75"
+                                style={{ color: 'white' }}
+                                onMouseOver={(e) => e.currentTarget.style.color = 'var(--accent)'} 
+                                onMouseOut={(e) => e.currentTarget.style.color = '#ffffff'}
+                            >
+                                [{link}]
+                            </button>
                             ))}
 
-                            <Nav.Link
-                                onClick={() => setPage('blog')}
-                                className="font-monospace opacity-75 transition-all"
-                                style={{ transition: 'opacity 0.2s ease-in-out', color: 'white' }}
-                                onMouseOver={(e) => {
-                                    e.currentTarget.style.color = 'var(--accent)';
-                                    e.currentTarget.style.opacity = '1';
-                                }}
-                                onMouseOut={(e) => {
-                                    e.currentTarget.style.color = 'inherit';
-                                    e.currentTarget.style.opacity = '0.75';
-                                }}
+                            <Nav.Link 
+                                as={Link} 
+                                to="/blog" 
+                                className="font-monospace opacity-75" 
+                                style={{ color: 'white' }}
+                                onMouseOver={(e) => e.currentTarget.style.color = 'var(--accent)'} 
+                                onMouseOut={(e) => e.currentTarget.style.color = '#ffffff'}
                             >
                                 [<Sparkles size={16} className="mb-1" />]
                             </Nav.Link>

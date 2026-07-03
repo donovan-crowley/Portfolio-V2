@@ -119,6 +119,7 @@ code {
 .bg-dark, .bg-black{
   background-color: #000000 !important;
 }
+
 .text-accent {
   color: var(--accent);
   text-shadow: 0 0 8px rgba(0, 242, 255, 0.5);
@@ -127,4 +128,8 @@ code {
 .border-accent {
   border: 2px solid var(--accent) !important;
   box-shadow: 0 0 12px rgba(0, 242, 255, 0.3);
+}
+
+section{
+  scroll-margin-top: 40px;
 }
