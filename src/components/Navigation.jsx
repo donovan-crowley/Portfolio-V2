@@ -43,9 +43,6 @@ export default function Navigation () {
                         donovan.dev
                     </button>
                 
-
-                    <Navbar.Toggle aria-controls="basic-navbar-nav" />
-
                     <Navbar.Collapse id="basic-navbar-nav">
                         <Nav className="gap-3 ms-3">
                             {['about', 'experience', 'software', 'hardware'].map((link) => (
@@ -60,17 +57,6 @@ export default function Navigation () {
                                 [{link}]
                             </button>
                             ))}
-
-                            <Nav.Link 
-                                as={Link} 
-                                to="/blog" 
-                                className="font-monospace opacity-75" 
-                                style={{ color: 'white' }}
-                                onMouseOver={(e) => e.currentTarget.style.color = 'var(--accent)'} 
-                                onMouseOut={(e) => e.currentTarget.style.color = '#ffffff'}
-                            >
-                                [<Sparkles size={16} className="mb-1" />]
-                            </Nav.Link>
                         </Nav>
         
 
@@ -84,8 +70,19 @@ export default function Navigation () {
                             <Nav.Link href="mailto:donocrowley16@gmail.com" className="text-accent transition-colors" style={{ transition: 'color 0.2s ease-in-out' }} onMouseOver={(e) => e.currentTarget.style.color = '#ffffff'} onMouseOut={(e) => e.currentTarget.style.color = 'var(--accent)'}>
                                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
                             </Nav.Link>
+                            <Nav.Link 
+                                as={Link} 
+                                to="/blog" 
+                                className="font-monospace text-accent opacity-75 p-0 d-flex" 
+                                onMouseOver={(e) => e.currentTarget.style.color = '#ffffff'} 
+                                onMouseOut={(e) => e.currentTarget.style.color = 'var(--accent)'}
+                            >
+                                <Sparkles size={16} />
+                            </Nav.Link>
                         </Nav>
                     </Navbar.Collapse>
+
+                    <Navbar.Toggle aria-controls="basic-navbar-nav" className="ms-auto" />
                 </div>
             </Container>
         </Navbar>

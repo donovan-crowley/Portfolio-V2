@@ -133,3 +133,7 @@ code {
 section{
   scroll-margin-top: 40px;
 }
+
+.blog-stretch {
+  margin-left: 15rem;
+}
