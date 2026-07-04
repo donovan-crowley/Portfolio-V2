@@ -12,7 +12,7 @@ import ScrollToTop from './components/ScrollToTop.jsx'
 
 export default function App() {
   return(
-    <BrowserRouter>
+    <BrowserRouter basename="/Portfolio-V2">
       <ScrollToTop />
       <div className="bg-black text-light d-flex flex-column min-vh-100">
         <Navigation />
