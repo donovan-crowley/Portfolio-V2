@@ -58,7 +58,7 @@ export default function Projects({ category }) {
                                             
                                         </div>
                                         <div className="d-flex flex-wrap gap-2 mb-3">
-                                            {proj.tags?.slice(0, 3).map((tag, i) => (
+                                            {proj.tags?.map((tag, i) => (
                                                 <span 
                                                     key={i} 
                                                     className="font-monospace text-light" 

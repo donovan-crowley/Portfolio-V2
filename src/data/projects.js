@@ -18,7 +18,7 @@ export const projects = [
     {
         id: 3,
         title: 'Web Scraper',
-        tags: ['API', 'BFS', 'AStarSearch', 'ML'],
+        tags: ['API', 'BFS', 'A*Search', 'ML'],
         shortDesc: 'Extracts web data using text embeddings',
         category: 'software',
         github: 'https://github.com/donovan-crowley/WebScraper', 
@@ -33,7 +33,7 @@ export const projects = [
     },
     {
         id: 5,
-        title: 'Photo Text Collage',
+        title: 'Photo Char Collage',
         tags: ['OpenCV', 'K-MeansAlgorithm', 'ML'],
         shortDesc: 'Generates text collage using image clustering',
         category: 'software',

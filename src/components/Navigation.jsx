@@ -73,7 +73,8 @@ export default function Navigation () {
                             <Nav.Link 
                                 as={Link} 
                                 to="/blog" 
-                                className="font-monospace text-accent opacity-75 p-0 d-flex" 
+                                className="text-accent transition-colors"
+                                style={{ transition: 'color 0.2s ease-in-out' }}
                                 onMouseOver={(e) => e.currentTarget.style.color = '#ffffff'} 
                                 onMouseOut={(e) => e.currentTarget.style.color = 'var(--accent)'}
                             >
