@@ -7,7 +7,7 @@ export const experiences = [
         bullets: [
             'Led development of clamp-based automated guided vehicle (AGV) PoC for insulation movement in warehouses. The induction of automated transportation significantly reduced previous manual work and safety risks.',
             'Analyzed operational, technical, and safety constraints for clamp AGV implementation across 30+ sites.',
-            'Developed trailer inspection workflows using copmuter vision.',
+            'Developed trailer inspection workflows using computer vision.',
         ]
 
     },
